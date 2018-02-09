@@ -1,7 +1,17 @@
-<%= link_to edit_task_path(task), remote: true do %>
-  <button>Edit</button>
-<% end %>
+<li class="list-group-item list-group-item-info">
+  <%= task.description %>
 
-<%= link_to task, remote: true, method: :delete,  data: { confirm: 'Are you sure?' } do %>
-  <button>Delete!</button>
-<% end %>
+  <span class="deadline"><%= task.deadline %></span>
+
+  <span class="edit">
+    <%= link_to edit_task_path(task), remote: true do %>
+      <button class="btn btn-primary btn-xs">Edit</button>
+    <% end %>
+
+
+    <%= link_to task, remote: true, method: :delete,
+        data: { confirm: 'Are you sure?' } do %>
+      <button class="btn btn-danger btn-xs">Delete!</button>
+    <% end %>
+  </span>
+</li>
